@@ -1,0 +1,123 @@
+{
+  "root_dir": "<DATA_ROOT>/",
+  "path_results": "<OUTPUT_ROOT>/route_b_convnext_sunlamp",
+  "project_root": "<PROJECT_ROOT>",
+  "path_pretrain": "",
+  "train_dataset_id": "synthetic",
+  "val_dataset_id": "synthetic",
+  "device": "cuda",
+  "model_name": "convnext_card",
+  "backbone": "convnext_tiny",
+  "pretrained": true,
+  "rows": 512,
+  "cols": 512,
+  "pose_threshold_reference_size": [
+    512,
+    512
+  ],
+  "pose_refine_lm": false,
+  "pose_eval_search": "all_topks",
+  "num_keypoints": 11,
+  "decoder_channels": 128,
+  "relation_heads": 4,
+  "cad_graph": "<PROJECT_ROOT>/assets/speed_keypoint_graph.json",
+  "batch_size": 1,
+  "batch_size_test": 1,
+  "gradient_accumulation_steps": 2,
+  "num_workers": 2,
+  "pin_memory": true,
+  "start_epoch": 0,
+  "total_epochs": 10,
+  "save_tensorboard": 100,
+  "save_epoch": 5,
+  "mean": 41.305,
+  "input_mean": [
+    0.485,
+    0.456,
+    0.406
+  ],
+  "input_std": [
+    0.229,
+    0.224,
+    0.225
+  ],
+  "std": 37.0706,
+  "activate_lpnp": true,
+  "geometry_warmup_epochs": 1,
+  "geometry_ramp_epochs": 2,
+  "split_submission": "sunlamp",
+  "isloop": true,
+  "amp": true,
+  "backbone_lr": 1e-05,
+  "decoder_lr": 0.0001,
+  "head_lr": 0.0001,
+  "lambda_hm": 1.0,
+  "lambda_depth": 0.2,
+  "lambda_pnp": 0.5,
+  "lambda_cad": 0.1,
+  "lambda_stage_cons": 0.1,
+  "pseudo_strategy": "staged_quality_fallback",
+  "pseudo_expanded_start_round": 0,
+  "pseudo_single_start_round": 1,
+  "pseudo_fused_start_round": null,
+  "pseudo_reprojection_error": 2.0,
+  "pseudo_strict_min_inliers": 5,
+  "pseudo_single_min_inliers": 6,
+  "pseudo_expanded_min_inliers": 7,
+  "pseudo_fused_min_inliers": 7,
+  "pseudo_min_depth": 0.1,
+  "pseudo_max_depth": 20.0,
+  "pseudo_max_selected_mean_reprojection": 1.5,
+  "pseudo_max_selected_reprojection": 3.0,
+  "pseudo_max_full_mean_reprojection": 8.0,
+  "pseudo_max_full_reprojection": 20.0,
+  "seed": 3407,
+  "image_augmentation": {
+    "enabled": true,
+    "probability": 1.0,
+    "gain": [
+      0.65,
+      1.45
+    ],
+    "gamma": [
+      0.75,
+      1.35
+    ],
+    "contrast": [
+      0.8,
+      1.2
+    ],
+    "blur_probability": 0.1,
+    "noise_probability": 0.5,
+    "noise_std": [
+      0.0,
+      0.015
+    ],
+    "preview_count": 2,
+    "local": {
+      "probability": 0.25,
+      "source_only": true,
+      "area": [
+        0.02,
+        0.12
+      ],
+      "aspect": [
+        0.5,
+        2.0
+      ],
+      "strength": [
+        0.5,
+        0.9
+      ],
+      "candidates": 4,
+      "patch_radius": 4.0,
+      "geometry": {
+        "enabled": true,
+        "min_support_ratio": 0.35,
+        "min_keypoints": 6
+      }
+    }
+  },
+  "eval_reprojection_error": 1.0,
+  "activate_l3d": false
+}
